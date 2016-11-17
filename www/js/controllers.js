@@ -57,6 +57,14 @@ angular.module('starter.controllers', [])
           $scope.dataURI = error;
         });
     }
+
+    $scope.resetImage = function () {
+      $scope.imgURI = undefined;
+    }
+
+    $scope.resetData = function () {
+      $scope.dataURI = undefined;
+    }
 })
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {

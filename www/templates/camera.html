@@ -4,30 +4,38 @@
     <h2>Photos</h2>
 
     <button class="button button-full button-balanced" ng-click="takePhoto()">
-      Take Photo
+      Camera
     </button>
     
     <button class="button button-full button-energized" ng-click="choosePhoto()">
       Choose Photo
     </button>
 
-    <div class="card" ng-show="imgURI !== undefined">
-      <div class="item item-text-wrap">
+    <div class="list card" ng-show="imgURI !== undefined">
+      <div class="item item-image">
         <img ng-src="{{imgURI}}" />
       </div>
+      <a class="item item-icon-left assertive" ng-click="resetImage()">
+        <i class="icon ion-trash-a"></i> Reset
+      </a>
     </div>
     
     <h2>Barcodes</h2>
 
     <button class="button button-full button-calm" ng-click="takeScan()">
-      Take Scan
+      Scan
     </button>
     
-    <div class="card" ng-show="dataURI !== undefined">
+    <div class="list card" ng-show="dataURI !== undefined">
       <div class="item item-text-wrap">
         <span>{{dataURI}}</span>
       </div>
+      <a class="item item-icon-left assertive" ng-click="resetData()">
+        <i class="icon ion-trash-a"></i> Reset
+      </a>
     </div>
+
+    <br />
     
   </ion-content>
 </ion-view>
