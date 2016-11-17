@@ -1,0 +1,33 @@
+<ion-view view-title="Camera test">
+  <ion-content ng-controller="CameraController" padding="true">
+    
+    <h2>Photos</h2>
+
+    <button class="button button-full button-balanced" ng-click="takePhoto()">
+      Take Photo
+    </button>
+    
+    <button class="button button-full button-energized" ng-click="choosePhoto()">
+      Choose Photo
+    </button>
+
+    <div class="card" ng-show="imgURI !== undefined">
+      <div class="item item-text-wrap">
+        <img ng-src="{{imgURI}}" />
+      </div>
+    </div>
+    
+    <h2>Barcodes</h2>
+
+    <button class="button button-full button-calm" ng-click="takeScan()">
+      Take Scan
+    </button>
+    
+    <div class="card" ng-show="dataURI !== undefined">
+      <div class="item item-text-wrap">
+        <span>{{dataURI}}</span>
+      </div>
+    </div>
+    
+  </ion-content>
+</ion-view>

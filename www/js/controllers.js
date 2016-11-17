@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller("cameraController", function ($scope, $cordovaCamera) {
+.controller("CameraController", function ($scope, $cordovaCamera, $cordovaBarcodeScanner) {
  
     $scope.takePhoto = function () {
       var options = {
@@ -17,9 +17,11 @@ angular.module('starter.controllers', [])
       };
 
         $cordovaCamera.getPicture(options).then(function (imageData) {
+            // Success! Camera data is here
             $scope.imgURI = "data:image/jpeg;base64," + imageData;
         }, function (err) {
-            // An error occured. Show a message to the user
+            // An error occured
+            $scope.imgURI = err;
         });
     }
     
@@ -37,9 +39,22 @@ angular.module('starter.controllers', [])
       };
 
         $cordovaCamera.getPicture(options).then(function (imageData) {
+            // Success! Gallery data is here
             $scope.imgURI = "data:image/jpeg;base64," + imageData;
         }, function (err) {
-            // An error occured. Show a message to the user
+            // An error occured
+            $scope.imgURI = err;
+        });
+    }
+
+    $scope.takeScan = function () {
+      $cordovaBarcodeScanner.scan()
+        .then(function(barcodeData) {
+          // Success! Barcode data is here
+          $scope.dataURI = barcodeData.text;
+        }, function(error) {
+          // An error occurred
+          $scope.dataURI = error;
         });
     }
 })

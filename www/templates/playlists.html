@@ -1,12 +1,5 @@
 <ion-view view-title="Playlists">
-  <ion-content ng-controller="cameraController" padding="true">
-    <button class="button button-full button-balanced" ng-click="takePhoto()">
-      Take Photo
-    </button>
-    <button class="button button-full button-energized" ng-click="choosePhoto()">
-      Choose Photo
-    </button>
-    <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" />    
+  <ion-content>
     <ion-list>
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
         {{playlist.title}}
